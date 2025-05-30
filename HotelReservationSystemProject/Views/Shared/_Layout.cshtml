@@ -25,8 +25,52 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+
+                       @*  @if (User.IsInRole("SuperAdmin")) *@
+                        
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                    Admin Management
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Guests" asp-action="Index">Manage Guests</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Receptionists" asp-action="Index">Manage Receptionists</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Managers" asp-action="Index">Manage Managers</a>
+                                    </li>
+                                    <li class="nav-item">
+										<a class="nav-link text-dark" asp-area="" asp-controller="Rooms" asp-action="Index">Manage Rooms</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="RoomBookings" asp-action="Index">Manage RoomBookings</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="RoomBookingDetails" asp-action="Index">Manage RoomBookingDetails</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="RoomItems" asp-action="Index">Manage RoomItems</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="RolesAdmin" asp-action="Index">Manage RolesAdmin</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Payments" asp-action="Index">Manage Payments</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Reports" asp-action="Index">Manage Reports </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <li>
+                            <partial name="_RoomSearch"/>
+                        </li>
+                        
                     </ul>
-                    <partial name="_LoginPartial" />
+                    <partial name="_LoginPartial"/>
                 </div>
             </div>
         </nav>

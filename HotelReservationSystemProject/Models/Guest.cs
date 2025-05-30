@@ -9,6 +9,7 @@ namespace HotelReservationSystemProject.Models
         public string GuestFName {  get; set; }
         public string GuestLName {  get; set; }
         public string PassportNo {  get; set; }
+        public string Email {  get; set; }
         public ICollection<RoomBooking> RoomBookings { get; set; }
 
 
