@@ -2,7 +2,22 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+@* <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+ *@
+<div class="container-fluid p-0">
+    <div class="banner position-relative text-white">
+        
+       
+          <img src="~/Images/HomePage.jpg" class="img-fluid w-100" alt="hotel Image">
+        <div class="position-absolute top-50 start-50 translate-middle text-center">
+            <h1 class="display-4 fw-bold">Rooms $ Suites</h1>
+            <p class="lead">Vacation Packages</p>
+
+            <a asp-controller="Rooms" asp-action="GetAllRooms" class="btn btn-success btn-sm mt-3">Book Now</a>
+
+        </div>
+    </div>
 </div>

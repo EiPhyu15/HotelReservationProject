@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\images\\HomePage.jpg",
+      "PackagePath": "staticwebassets\\images\\HomePage.jpg"
+    },
+    {
       "Id": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

@@ -30,6 +30,10 @@ namespace HotelReservationSystemProject.Controllers
             }
             return View(lstRooms);
         }
+        public async Task<IActionResult> GetAllRooms()
+        {
+            return View(await _context.Room.ToListAsync());
+        }
         public async Task<IActionResult> Index()
         {
             return View(await _context.Room.ToListAsync());

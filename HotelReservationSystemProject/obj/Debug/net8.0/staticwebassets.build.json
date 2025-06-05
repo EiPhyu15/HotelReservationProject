@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rt6QhhZ9k2jq9nDTRZsbyKOgceW2xHy8vn6661NQtcQ=",
+  "Hash": "iniBUdMukuE7uL7N1/Y/XWMWKPZzsIJEQOR8CPxqv+A=",
   "Source": "HotelReservationSystemProject",
   "BasePath": "_content/HotelReservationSystemProject",
   "Mode": "Default",
@@ -1359,6 +1359,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\images\\HomePage.jpg",
+      "SourceId": "HotelReservationSystemProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\",
+      "BasePath": "_content/HotelReservationSystemProject",
+      "RelativePath": "images/HomePage#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "vg7xm4i5ss",
+      "Integrity": "8ZWnnC+xXjCCM2zxsfdiKoAkFgox/eZKBpvg/AWqp7Q=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\HomePage.jpg"
     },
     {
       "Identity": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\js\\site.js",
@@ -5125,6 +5146,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s="
+        }
+      ]
+    },
+    {
+      "Route": "images/HomePage.jpg",
+      "AssetFile": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\images\\HomePage.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "144698"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8ZWnnC+xXjCCM2zxsfdiKoAkFgox/eZKBpvg/AWqp7Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 05 Jun 2025 02:26:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8ZWnnC+xXjCCM2zxsfdiKoAkFgox/eZKBpvg/AWqp7Q="
+        }
+      ]
+    },
+    {
+      "Route": "images/HomePage.vg7xm4i5ss.jpg",
+      "AssetFile": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\images\\HomePage.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "144698"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8ZWnnC+xXjCCM2zxsfdiKoAkFgox/eZKBpvg/AWqp7Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 05 Jun 2025 02:26:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vg7xm4i5ss"
+        },
+        {
+          "Name": "label",
+          "Value": "images/HomePage.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8ZWnnC+xXjCCM2zxsfdiKoAkFgox/eZKBpvg/AWqp7Q="
         }
       ]
     },
