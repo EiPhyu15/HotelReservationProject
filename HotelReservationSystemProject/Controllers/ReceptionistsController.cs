@@ -56,12 +56,12 @@ namespace HotelReservationSystemProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ReceptionistId,ReceptionistFName,ReceptionistLName,ReceptionistInfo")] Receptionist receptionist)
         {
-            if (ModelState.IsValid)
-            {
+           // if (ModelState.IsValid)
+           // {
                 _context.Add(receptionist);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+            //}
             return View(receptionist);
         }
 

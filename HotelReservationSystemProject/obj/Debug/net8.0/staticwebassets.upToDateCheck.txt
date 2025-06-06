@@ -1,6 +1,14 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\Deluxeroom1.jpg
+wwwroot\images\Deluxeroom3.jpg
+wwwroot\images\DeluxerTwin1.jpg
+wwwroot\images\DeluxeTwin2.jpg
+wwwroot\images\ExecutiveSuite1.jpg
+wwwroot\images\ExecutiveSuite2.jpg
+wwwroot\images\familyroom.jpg
 wwwroot\images\HomePage.jpg
+wwwroot\images\singleroom2.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

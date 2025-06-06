@@ -13,8 +13,40 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\images\\DeluxeTwin2.jpg",
+      "PackagePath": "staticwebassets\\images\\DeluxeTwin2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\images\\DeluxerTwin1.jpg",
+      "PackagePath": "staticwebassets\\images\\DeluxerTwin1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\images\\Deluxeroom1.jpg",
+      "PackagePath": "staticwebassets\\images\\Deluxeroom1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\images\\Deluxeroom3.jpg",
+      "PackagePath": "staticwebassets\\images\\Deluxeroom3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\images\\ExecutiveSuite1.jpg",
+      "PackagePath": "staticwebassets\\images\\ExecutiveSuite1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\images\\ExecutiveSuite2.jpg",
+      "PackagePath": "staticwebassets\\images\\ExecutiveSuite2.jpg"
+    },
+    {
       "Id": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\images\\HomePage.jpg",
       "PackagePath": "staticwebassets\\images\\HomePage.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\images\\familyroom.jpg",
+      "PackagePath": "staticwebassets\\images\\familyroom.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\images\\singleroom2.jpg",
+      "PackagePath": "staticwebassets\\images\\singleroom2.jpg"
     },
     {
       "Id": "C:\\Users\\Thin Ei Phyu\\source\\repos\\HotelReservationSystemProject\\HotelReservationSystemProject\\wwwroot\\js\\site.js",

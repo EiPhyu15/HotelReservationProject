@@ -208,6 +208,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3Vlc3RzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Thin Ei Phyu/source/repos/HotelReservationSystemProject/HotelReservationSystemProject/Views/Guests/MyProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3Vlc3RzXE15UHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Thin Ei Phyu/source/repos/HotelReservationSystemProject/HotelReservationSystemProject/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -350,6 +354,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Thin Ei Phyu/source/repos/HotelReservationSystemProject/HotelReservationSystemProject/Views/RoomBookings/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbUJvb2tpbmdzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thin Ei Phyu/source/repos/HotelReservationSystemProject/HotelReservationSystemProject/Views/RoomBookings/MyRoomBooking.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbUJvb2tpbmdzXE15Um9vbUJvb2tpbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Thin Ei Phyu/source/repos/HotelReservationSystemProject/HotelReservationSystemProject/Views/RoomItems/Create.cshtml]

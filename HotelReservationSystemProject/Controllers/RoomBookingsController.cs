@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HotelReservationSystemProject.Data;
 using HotelReservationSystemProject.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HotelReservationSystemProject.Controllers
 {
@@ -18,7 +19,15 @@ namespace HotelReservationSystemProject.Controllers
         {
             _context = context;
         }
-
+        [Authorize(Roles = "Guest")]
+        public async Task<IActionResult> MyRoomBooking()
+        {
+        
+            var username = User.Identity.Name;
+            var getguestId = _context.Guest.Where(c => c.Email == username).FirstOrDefault().GuestId;
+            var getRoomBooking = _context.RoomBooking.Where(q => q.GuestId == getguestId).ToList();
+            return View(getRoomBooking);
+        }
         // GET: RoomBookings
         public async Task<IActionResult> Index()
         {
@@ -61,12 +70,12 @@ namespace HotelReservationSystemProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("RoomBookingId,CheckInDate,CheckOutDate,Status,GuestId,ReceptionistId")] RoomBooking roomBooking)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 _context.Add(roomBooking);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+            //}
             ViewData["GuestId"] = new SelectList(_context.Guest, "GuestId", "GuestId", roomBooking.GuestId);
             ViewData["ReceptionistId"] = new SelectList(_context.Receptionist, "ReceptionistId", "ReceptionistId", roomBooking.ReceptionistId);
             return View(roomBooking);

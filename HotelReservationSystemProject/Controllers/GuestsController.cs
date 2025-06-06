@@ -7,16 +7,30 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HotelReservationSystemProject.Data;
 using HotelReservationSystemProject.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace HotelReservationSystemProject.Controllers
+ 
 {
     public class GuestsController : Controller
+
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        
 
-        public GuestsController(ApplicationDbContext context)
+        public GuestsController(ApplicationDbContext context, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _context = context;
+            _userManager = userManager;
+            _roleManager = roleManager;
+        }
+        public async Task<IActionResult> MyProfile()
+        {
+            string username = User.Identity.Name;
+            var getProfile = _context.Guest.Where(c => c.Email == username).FirstOrDefault();
+            return View(getProfile);
         }
 
         // GET: Guests
@@ -56,14 +70,23 @@ namespace HotelReservationSystemProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("GuestId,GuestFName,GuestLName,PassportNo,Email")] Guest guest)
         {
-           // if (ModelState.IsValid)
-            //{
-                _context.Add(guest);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            //}
+          
+             _context.Add(guest);
+            var guestUserId = _context.Users.Where(u => u.Email == guest.Email).FirstOrDefault().Id;
+            var guestRoleId = _context.Roles.Where(r => r.Name == "Guest").FirstOrDefault().Id;
+            var roleName = _context.Roles.Where(r => r.Name == "Guest").FirstOrDefault().Name;
+            var userRole = new IdentityUserRole<string>
+            {
+                UserId = guestUserId,
+                RoleId = guestRoleId
+            };
+            _context.UserRoles.Add(userRole);
+            await _context.SaveChangesAsync();
+            return Redirect("/Identity/Account/Login");
             return View(guest);
-        }
+            }
+
+        
 
         // GET: Guests/Edit/5
         public async Task<IActionResult> Edit(int? id)
