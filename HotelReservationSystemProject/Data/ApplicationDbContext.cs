@@ -19,5 +19,6 @@ namespace HotelReservationSystemProject.Data
         public DbSet<HotelReservationSystemProject.Models.RoomBooking> RoomBooking { get; set; } = default!;
         public DbSet<HotelReservationSystemProject.Models.RoomBookingDetails> RoomBookingDetails { get; set; } = default!;
         public DbSet<HotelReservationSystemProject.Models.RoomItems> RoomItems { get; set; } = default!;
+        public DbSet<HotelReservationSystemProject.Models.Invoice> Invoice { get; set; } = default!;
     }
 }

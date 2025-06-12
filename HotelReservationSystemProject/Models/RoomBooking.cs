@@ -16,7 +16,10 @@ namespace HotelReservationSystemProject.Models
         public int ReceptionistId {  get; set; }
         [ForeignKey("ReceptionistId")]
         public Receptionist Receptionist { get; set; }
+       
         public ICollection<RoomBookingDetails>RoomBookingDetails { get; set; }
+        public ICollection<Invoice> Invoice {  get; set; }
+
         
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HotelReservationSystemProject.Data;
 using HotelReservationSystemProject.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace HotelReservationSystemProject.Controllers
 {
@@ -56,11 +57,12 @@ namespace HotelReservationSystemProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ReceptionistId,ReceptionistFName,ReceptionistLName,ReceptionistInfo")] Receptionist receptionist)
         {
-           // if (ModelState.IsValid)
-           // {
-                _context.Add(receptionist);
+            // if (ModelState.IsValid)
+            // {
+           
+            _context.Add(receptionist);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+            return Redirect("/Identity/Account/Login");
             //}
             return View(receptionist);
         }

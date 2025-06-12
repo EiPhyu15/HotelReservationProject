@@ -16,5 +16,8 @@ namespace HotelReservationSystemProject.Models
         public int RoomBookingId {  get; set; }
         [ForeignKey("RoomBookingId")]
         public RoomBooking RoomBooking { get; set; }
+        //public int InvoiceId {  get; set; }
+        //[ForeignKey("InvoiceId")]
+        //public Invoice Invoice { get; set; }
     }
 }

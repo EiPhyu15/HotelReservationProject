@@ -4,6 +4,7 @@ using HotelReservationSystemProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelReservationSystemProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250611035859_updateinvoice")]
+    partial class updateinvoice
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,8 +72,9 @@ namespace HotelReservationSystemProject.Data.Migrations
                     b.Property<int>("RoomBookingId")
                         .HasColumnType("int");
 
-                    b.Property<double>("TotalAmount")
-                        .HasColumnType("float");
+                    b.Property<string>("TotalAmount")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("InvoiceId");
 
@@ -112,6 +116,9 @@ namespace HotelReservationSystemProject.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentId"));
 
+                    b.Property<int>("InvoiceId")
+                        .HasColumnType("int");
+
                     b.Property<double>("PaymentAmount")
                         .HasColumnType("float");
 
@@ -129,6 +136,8 @@ namespace HotelReservationSystemProject.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PaymentId");
+
+                    b.HasIndex("InvoiceId");
 
                     b.HasIndex("ReceptionistId");
 
@@ -526,6 +535,12 @@ namespace HotelReservationSystemProject.Data.Migrations
 
             modelBuilder.Entity("HotelReservationSystemProject.Models.Payment", b =>
                 {
+                    b.HasOne("HotelReservationSystemProject.Models.Invoice", "Invoice")
+                        .WithMany("Payment")
+                        .HasForeignKey("InvoiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("HotelReservationSystemProject.Models.Receptionist", "Receptionist")
                         .WithMany("Payment")
                         .HasForeignKey("ReceptionistId")
@@ -537,6 +552,8 @@ namespace HotelReservationSystemProject.Data.Migrations
                         .HasForeignKey("RoomBookingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Invoice");
 
                     b.Navigation("Receptionist");
 
@@ -665,6 +682,11 @@ namespace HotelReservationSystemProject.Data.Migrations
             modelBuilder.Entity("HotelReservationSystemProject.Models.Guest", b =>
                 {
                     b.Navigation("RoomBookings");
+                });
+
+            modelBuilder.Entity("HotelReservationSystemProject.Models.Invoice", b =>
+                {
+                    b.Navigation("Payment");
                 });
 
             modelBuilder.Entity("HotelReservationSystemProject.Models.Manager", b =>

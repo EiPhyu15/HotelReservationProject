@@ -1,0 +1,89 @@
+﻿@model IEnumerable<HotelReservationSystemProject.Models.RoomItems>
+
+@{
+    ViewData["Title"] = "DisplayRoomItems";
+}
+
+<h1>DisplayRoomItems</h1>
+
+@* <p>
+    <a asp-action="Create">Create New</a>
+</p> *@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomId)
+            </th>
+         
+            <th>
+                @Html.DisplayNameFor(model => model.CartId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+           @*  <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                Html.DisplayNameFor(model => model.Room)
+            </th>  *@
+            <th>
+                Total Amount
+            </th>
+            <th>
+                Delete
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var OverallTotal = 0.0;
+        }
+   
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomId)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CartId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td> *@
+@*             <td>
+                @Html.DisplayFor(modelItem => item.Room.RoomId)
+            </td> *@                <td>
+                    @{
+                        var tamount = item.Quantity * item.Price;
+                        OverallTotal = OverallTotal + tamount;
+                    }
+                    @tamount.ToString("C2")
+                </td>
+            <td>
+                <a class="btn btn-md btn-danger" asp-controller="RoomItems" asp-action="DeleteCartItem" asp-route-id="@item.RoomItemsId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<br />
+<br />
+<h1>The total amount of orders is:@OverallTotal.ToString("C2")</h1>
+
+<br />
+<br />
+<div>
+    <a asp-controller="RoomItems" asp-action="CheckOut" class="btn btn-lg btn-success">Check Out</a>
+</div>
+<br />
+<br />
+<div>
+    <a asp-controller="Rooms" asp-action="GetAllRooms" class="btn btn-lg btn-primary">Continue Booking</a>
+</div>
+

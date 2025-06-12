@@ -13,6 +13,7 @@ namespace HotelReservationSystemProject.Models
         public double Price {  get; set; }
         public ICollection<RoomItems> RoomItems { get; set; }
         public ICollection<RoomBookingDetails> RoomBookingDetails { get; set; }
+       
         
 
     }

@@ -52,9 +52,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" asp-area="" asp-controller="RoomBookingDetails" asp-action="Index">Manage RoomBookingDetails</a>
                                     </li>
-                                    <li class="nav-item">
+                                  @*   <li class="nav-item">
                                         <a class="nav-link text-dark" asp-area="" asp-controller="RoomItems" asp-action="Index">Manage RoomItems</a>
-                                    </li>
+                                    </li> *@
                                     <li>
                                         <a class="nav-link text-dark" asp-area="" asp-controller="RolesAdmin" asp-action="Index">Manage RolesAdmin</a>
                                     </li>
@@ -76,9 +76,12 @@
                         <li>
                             <a class="nav-link text-dark" asp-area="" asp-controller="RoomBookings" asp-action="MyRoomBooking">My RoomBooking</a>
                         </li>
-                        <li>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Reports" asp-action="MyReport">My Report</a>
-                        </li>
+                      @*   <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="RoomItems" asp-action="ListRoomItems">ListRoomItems</a>
+                        </li> *@
+                            <li>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="RoomItems" asp-action="DisplayRoomItems">My Cart (@ViewBag.count)</a>
+                            </li>
                         }
                         <li>
                             <partial name="_RoomSearch"/>

@@ -14,11 +14,17 @@ namespace HotelReservationSystemProject.Controllers
     public class RoomBookingsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        public string RoomCartId { get; set; }
+        public const string CartSessionKey = "CartId";
+        
+
 
         public RoomBookingsController(ApplicationDbContext context)
         {
+            this.RoomCartId = "";
             _context = context;
         }
+        
         [Authorize(Roles = "Guest")]
         public async Task<IActionResult> MyRoomBooking()
         {
@@ -56,6 +62,7 @@ namespace HotelReservationSystemProject.Controllers
         }
 
         // GET: RoomBookings/Create
+
         public IActionResult Create()
         {
             ViewData["GuestId"] = new SelectList(_context.Guest, "GuestId", "GuestId");
@@ -68,18 +75,34 @@ namespace HotelReservationSystemProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RoomBookingId,CheckInDate,CheckOutDate,Status,GuestId,ReceptionistId")] RoomBooking roomBooking)
+       
+        public async Task<IActionResult> Create([Bind("RoomBookingId,CheckInDate,CheckOutDate,Status,GuestId,ReceptionistId")] RoomBooking roomBooking, int id)
         {
             //if (ModelState.IsValid)
             //{
-                _context.Add(roomBooking);
+            var roomId = id;
+            roomBooking.ReceptionistId = 1;
+            var username = User.Identity.Name;
+            var guestId = _context.Guest.Where(g => g.Email == username).FirstOrDefault().GuestId;
+            roomBooking.GuestId = guestId;
+
+            _context.Add(roomBooking);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+            RoomBookingDetails rbd = new RoomBookingDetails();
+            rbd.ServiceDescription = "Room Booking";
+            rbd.RoomPrice = _context.Room.Where(r => r.RoomId == roomId).FirstOrDefault().Price;
+            rbd.RoomBookingId = roomBooking.RoomBookingId;
+            rbd.RoomId = Convert.ToInt32(roomId);
+            _context.Add(rbd);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("AddToCart", "RoomItems", new { id = id });
+           
             //}
             ViewData["GuestId"] = new SelectList(_context.Guest, "GuestId", "GuestId", roomBooking.GuestId);
             ViewData["ReceptionistId"] = new SelectList(_context.Receptionist, "ReceptionistId", "ReceptionistId", roomBooking.ReceptionistId);
             return View(roomBooking);
-        }
+
+            }
 
         // GET: RoomBookings/Edit/5
         public async Task<IActionResult> Edit(int? id)

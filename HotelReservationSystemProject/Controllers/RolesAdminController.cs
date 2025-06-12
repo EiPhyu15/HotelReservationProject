@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace HotelReservationSystemProject.Controllers
 {
-   
+    
     public class RolesAdminController : Controller
     {
         private readonly ApplicationDbContext _context;
