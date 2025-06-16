@@ -260,6 +260,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Thin Ei Phyu/source/repos/HotelReservationSystemProject/HotelReservationSystemProject/Views/Payments/Cancel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcQ2FuY2VsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thin Ei Phyu/source/repos/HotelReservationSystemProject/HotelReservationSystemProject/Views/Payments/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcQ2hlY2tvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Thin Ei Phyu/source/repos/HotelReservationSystemProject/HotelReservationSystemProject/Views/Payments/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -278,6 +286,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Thin Ei Phyu/source/repos/HotelReservationSystemProject/HotelReservationSystemProject/Views/Payments/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thin Ei Phyu/source/repos/HotelReservationSystemProject/HotelReservationSystemProject/Views/Payments/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcU3VjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Thin Ei Phyu/source/repos/HotelReservationSystemProject/HotelReservationSystemProject/Views/Receptionists/Create.cshtml]
@@ -318,6 +330,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Thin Ei Phyu/source/repos/HotelReservationSystemProject/HotelReservationSystemProject/Views/Reports/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Thin Ei Phyu/source/repos/HotelReservationSystemProject/HotelReservationSystemProject/Views/Reports/ListBooked.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xMaXN0Qm9va2VkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Thin Ei Phyu/source/repos/HotelReservationSystemProject/HotelReservationSystemProject/Views/RolesAdmin/Create.cshtml]

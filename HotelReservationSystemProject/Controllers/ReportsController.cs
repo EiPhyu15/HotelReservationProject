@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HotelReservationSystemProject.Data;
 using HotelReservationSystemProject.Models;
+using Stripe.Reporting;
 
 namespace HotelReservationSystemProject.Controllers
 {
@@ -17,6 +18,11 @@ namespace HotelReservationSystemProject.Controllers
         public ReportsController(ApplicationDbContext context)
         {
             _context = context;
+        }
+        public async Task<IActionResult> ListBooked()
+        {
+            var lstbooked = _context.RoomBooking.Where(rb => rb.Status =="Confirmed" ).ToList();
+            return View(lstbooked);
         }
 
         // GET: Reports
@@ -61,12 +67,12 @@ namespace HotelReservationSystemProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ReportId,GeneratedDate,ReportTitle,ManagerId,ReceptionistId")] Report report)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 _context.Add(report);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+            //}
             ViewData["ManagerId"] = new SelectList(_context.Manager, "ManagerId", "ManagerId", report.ManagerId);
             ViewData["ReceptionistId"] = new SelectList(_context.Receptionist, "ReceptionistId", "ReceptionistId", report.ReceptionistId);
             return View(report);
