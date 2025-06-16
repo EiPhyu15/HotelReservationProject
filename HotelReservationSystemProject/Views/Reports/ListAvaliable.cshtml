@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<HotelReservationSystemProject.Models.RoomBooking>
 
 @{
-    ViewData["Title"] = "ListBooked";
+    ViewData["Title"] = "ListAvaliable";
 }
 
-<h1>ListBooked</h1>
+<h1>ListAvaliable</h1>
 
 @* <p>
     <a asp-action="Create">Create New</a>
@@ -21,6 +21,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.Guest)
             </th>
@@ -45,6 +46,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Guest.GuestFName)
             </td>
+                
             <td>
                 @Html.DisplayFor(modelItem => item.Receptionist.ReceptionistFName)
             </td>

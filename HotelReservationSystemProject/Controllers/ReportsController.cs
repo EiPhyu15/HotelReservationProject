@@ -19,12 +19,22 @@ namespace HotelReservationSystemProject.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> ListBooked()
+        public IActionResult ListBooked()
         {
-            var lstbooked = _context.RoomBooking.Where(rb => rb.Status =="Confirmed" ).ToList();
+           
+            var lstbooked = _context.RoomBooking.Where(rb => rb.Status == "Confirmed").Include(rb=>rb.Guest).Include(rb=>rb.Receptionist).ToList();
+            
             return View(lstbooked);
         }
+        public IActionResult ListAvaliable()
+        {
 
+            var lstavaliable = _context.RoomBooking.Where(rb => rb.Status == "Available").Include(rb => rb.Guest).Include(rb => rb.Receptionist).ToList();
+
+
+
+            return View(lstavaliable);
+        }
         // GET: Reports
         public async Task<IActionResult> Index()
         {
