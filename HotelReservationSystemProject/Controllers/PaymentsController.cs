@@ -10,6 +10,8 @@ using HotelReservationSystemProject.Models;
 using Stripe;
 using Stripe.Checkout;
 using Microsoft.Extensions.Options;
+using Stripe.V2;
+using Stripe.FinancialConnections;
 
 namespace HotelReservationSystemProject.Controllers
 {
@@ -25,8 +27,10 @@ namespace HotelReservationSystemProject.Controllers
             _stripeSettings = stripeSettings.Value;
             _configuration = configuration;
         }
+       
         public async Task<IActionResult> Success()
         {
+
             return View();
         }
         public async Task<IActionResult> Cancel()
@@ -51,8 +55,11 @@ namespace HotelReservationSystemProject.Controllers
                 var total = item.Price * item.Quantity;
                 TAmount = TAmount + total;
             }
+            var SuccessUrl = $"{Request.Scheme}://{Request.Host}/Payments/Success?session_id={{CHECKOUT_SESSION_ID}}";
+            var CancelUrl= $"{Request.Scheme}: // {Request.Host}/Payments/Cancel";
             // Create a Stripe Checkout Session
-            var options = new SessionCreateOptions
+            // var options = new SessionCreateOptions
+            var options = new Stripe.Checkout.SessionCreateOptions
             {
 
                 PaymentMethodTypes = new List<string> { "card" },
@@ -75,8 +82,10 @@ namespace HotelReservationSystemProject.Controllers
                     },
                 },
                 Mode = "payment",
-                SuccessUrl = Url.Action("Success", "Payments", null, Request.Scheme),
-                CancelUrl = Url.Action("Cancel", "Payments", null, Request.Scheme),
+                //SuccessUrl = Url.Action("Success", "Payments", null, Request.Scheme),
+                //CancelUrl = Url.Action("Cancel", "Payments", null, Request.Scheme),
+                SuccessUrl = SuccessUrl,
+                CancelUrl = CancelUrl,
             };
 
             foreach (var pro in cartItems)
@@ -137,12 +146,14 @@ namespace HotelReservationSystemProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PaymentId,PaymentDate,PaymentAmount,paymentType,ReceptionistId,RoomBookingId")] Payment payment)
         {
-            if (ModelState.IsValid)
-            {
+           // if (ModelState.IsValid)
+           // {
+                
+
                 _context.Add(payment);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+            //}
             ViewData["ReceptionistId"] = new SelectList(_context.Set<Receptionist>(), "ReceptionistId", "ReceptionistId", payment.ReceptionistId);
             ViewData["RoomBookingId"] = new SelectList(_context.Set<RoomBooking>(), "RoomBookingId", "RoomBookingId", payment.RoomBookingId);
             return View(payment);

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HotelReservationSystemProject.Data;
 using HotelReservationSystemProject.Models;
+using Stripe;
 
 namespace HotelReservationSystemProject.Controllers
 {
@@ -24,6 +25,7 @@ namespace HotelReservationSystemProject.Controllers
             _context = context;
             _context = context;
         }
+        
         public async Task<IActionResult> AddToCart(int id)
         {
             RoomCartId = GetCartId();
@@ -113,12 +115,21 @@ namespace HotelReservationSystemProject.Controllers
             var paymentStatus = "Paid";
             var guestId = _context.Guest.Where(c => c.Email == username).FirstOrDefault().GuestId;
             RoomBooking roomBooking = new RoomBooking();
-            //Invoice inv = new Invoice();
-           // inv.InvoiceDate = DateOnly.FromDateTime(DateTime.Now);
+            //var P= new Payment();
+
+            // P.PaymentDate = DateOnly.FromDateTime(DateTime.Now);
+            // P.paymentType = "Card";
+            // P.PaymentAmount = TAmount;
+            // P.ReceptionistId = 1;
+            // var roombookingid = ;
+            // var rbId= _context.RoomBooking.Where(rb
+            //_context.Payment.Add(P);
+            //P.RoomBookingId = _context.RoomBooking.Where(rb => rb.RoomBookingId = roomBooking).ToList();
+            // inv.InvoiceDate = DateOnly.FromDateTime(DateTime.Now);
             //inv.TotalAmount = TAmount;
             //inv.PaymentStatus = paymentStatus;
             //inv.RoomBookingId = guest;
-           // _context.Invoice.Add(inv);
+            // _context.Invoice.Add(inv);
 
             await _context.SaveChangesAsync();
 

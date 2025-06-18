@@ -31,7 +31,7 @@ namespace HotelReservationSystemProject.Controllers
             }
             return View(lstRooms);
         }
-        [Authorize(Roles = "Guest")]
+        [Authorize(Roles = "Guest, SuperAdmin, Receptionist")]
         public async Task<IActionResult> GetAllRooms()
         {
             return View(await _context.Room.ToListAsync());

@@ -13,7 +13,10 @@
     <thead>
         <tr>
 
-           
+
+            <th>
+                @Html.DisplayNameFor(model => model.RoomBookingId)
+            </th>
            
             <th>
                 @Html.DisplayNameFor(model => model.CheckInDate)
@@ -24,18 +27,21 @@
             <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
-            <th>
+            @* <th>
                 @Html.DisplayNameFor(model => model.Guest)
             </th> 
            <th>
                 @Html.DisplayNameFor(model => model.Receptionist)
             </th>
-            <th></th>
+            <th></th> *@
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomBookingId)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CheckInDate)
             </td>
@@ -45,12 +51,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
-            <td>
+           @*  <td>
                 @Html.DisplayFor(modelItem => item.Guest.GuestId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Receptionist.ReceptionistId)
-            </td>
+            </td> *@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.RoomBookingId">Edit</a> |@* 
                 <a asp-action="Details" asp-route-id="@item.RoomBookingId">Details</a> | *@
