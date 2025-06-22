@@ -17,7 +17,7 @@ namespace HotelReservationSystemProject.Controllers
         public string RoomCartId { get; set; }
         public const string CartSessionKey = "CartId";
         private readonly ApplicationDbContext _context;
-        
+       
 
         public RoomItemsController(ApplicationDbContext context)
         {
@@ -26,7 +26,7 @@ namespace HotelReservationSystemProject.Controllers
             _context = context;
         }
         
-        public async Task<IActionResult> AddToCart(int id)
+        public async Task<IActionResult> AddToCart(int id, int bkid)
         {
             RoomCartId = GetCartId();
             RoomItems cartItem = new RoomItems();
@@ -53,7 +53,7 @@ namespace HotelReservationSystemProject.Controllers
                 cartItem.Quantity++;
             }
             await _context.SaveChangesAsync();
-            return RedirectToAction("DisplayRoomItems");
+            return RedirectToAction("DisplayRoomItems", new { id = bkid });
         }
         public async Task<IActionResult> DeleteCartItem(int id)
         {
@@ -94,13 +94,14 @@ namespace HotelReservationSystemProject.Controllers
             return _context.RoomItems.Where(
             c => c.CartId == RoomCartId).ToList();
         }
-        public IActionResult DisplayRoomItems()
+        public IActionResult DisplayRoomItems(int id)
         {
             var cartitems = GetRoomItems();
             ViewBag.count = cartitems.Count;
+            ViewBag.bkid = id;
             return View(cartitems);
         }
-        public async Task<IActionResult> CheckOut()
+        public async Task<IActionResult> CheckOut(int id)
         {
             var username = User.Identity.Name;
             var roomItems = _context.RoomItems.Where(ci => ci.CartId == username).ToList();
@@ -115,15 +116,15 @@ namespace HotelReservationSystemProject.Controllers
             var paymentStatus = "Paid";
             var guestId = _context.Guest.Where(c => c.Email == username).FirstOrDefault().GuestId;
             RoomBooking roomBooking = new RoomBooking();
-            //var P= new Payment();
+            var P = new Payment();
 
-            // P.PaymentDate = DateOnly.FromDateTime(DateTime.Now);
-            // P.paymentType = "Card";
-            // P.PaymentAmount = TAmount;
-            // P.ReceptionistId = 1;
-            // var roombookingid = ;
-            // var rbId= _context.RoomBooking.Where(rb
-            //_context.Payment.Add(P);
+            P.PaymentDate = DateOnly.FromDateTime(DateTime.Now);
+            P.paymentType = "Card";
+            P.PaymentAmount = TAmount;
+            P.ReceptionistId = 1;
+            P.RoomBookingId = id;
+            
+            _context.Payment.Add(P);
             //P.RoomBookingId = _context.RoomBooking.Where(rb => rb.RoomBookingId = roomBooking).ToList();
             // inv.InvoiceDate = DateOnly.FromDateTime(DateTime.Now);
             //inv.TotalAmount = TAmount;
