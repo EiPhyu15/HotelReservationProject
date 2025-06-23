@@ -122,7 +122,7 @@ namespace HotelReservationSystemProject.Controllers
             P.PaymentDate = DateOnly.FromDateTime(DateTime.Now);
             P.paymentType = "Card";
             P.PaymentAmount = TAmount;
-            P.ReceptionistId = 1;
+            P.ReceptionistId = 2;
             P.RoomBookingId = id;
             
             _context.Payment.Add(P);

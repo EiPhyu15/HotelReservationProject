@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using HotelReservationSystemProject.Data;
 using HotelReservationSystemProject.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace HotelReservationSystemProject.Controllers
 {
@@ -81,7 +82,7 @@ namespace HotelReservationSystemProject.Controllers
             //if (ModelState.IsValid)
             //{
             var roomId = id;
-            roomBooking.ReceptionistId = 1;
+            roomBooking.ReceptionistId = 2;
             var username = User.Identity.Name;
             var guestId = _context.Guest.Where(g => g.Email == username).FirstOrDefault().GuestId;
             roomBooking.GuestId = guestId;
@@ -162,10 +163,17 @@ namespace HotelReservationSystemProject.Controllers
         // GET: RoomBookings/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+           
             if (id == null)
             {
                 return NotFound();
             }
+
+            var rem = _context.RoomBookingDetails.Where(rm => rm.RoomBookingId == id).FirstOrDefault();
+            var pre = _context.Payment.Where(pr => pr.RoomBookingId == id).FirstOrDefault();
+            _context.RoomBookingDetails.Remove(rem);
+            _context.Payment.Remove(pre);
+            _context.SaveChanges();
 
             var roomBooking = await _context.RoomBooking
                 .Include(r => r.Guest)
@@ -191,7 +199,19 @@ namespace HotelReservationSystemProject.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            if (User.IsInRole("Guest"))
+            {
+                return RedirectToAction("MyRoomBooking");
+            }
+            else
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            
+            
+               
+           
+            
         }
 
         private bool RoomBookingExists(int id)
