@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using HotelReservationSystemProject.Data;
 using HotelReservationSystemProject.Models;
 using Stripe;
 using Stripe.Checkout;
-using Microsoft.Extensions.Options;
-using Stripe.V2;
-using Stripe.FinancialConnections;
+
+
 
 namespace HotelReservationSystemProject.Controllers
 {
@@ -82,10 +82,10 @@ namespace HotelReservationSystemProject.Controllers
                     },
                 },
                 Mode = "payment",
-                //SuccessUrl = Url.Action("Success", "Payments", null, Request.Scheme),
-                //CancelUrl = Url.Action("Cancel", "Payments", null, Request.Scheme),
-                SuccessUrl = SuccessUrl,
-                CancelUrl = CancelUrl,
+                SuccessUrl = Url.Action("Success", "Payments", null, Request.Scheme),
+                CancelUrl = Url.Action("Cancel", "Payments", null, Request.Scheme),
+                //SuccessUrl = SuccessUrl,
+                //CancelUrl = CancelUrl,
             };
 
             foreach (var pro in cartItems)

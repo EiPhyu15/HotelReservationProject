@@ -95,7 +95,7 @@ namespace HotelReservationSystemProject.Controllers
             rbd.RoomId = Convert.ToInt32(roomId);
             _context.Add(rbd);
             await _context.SaveChangesAsync();
-            return RedirectToAction("AddToCart", "RoomItems", new { id = id });
+            return RedirectToAction("AddToCart", "RoomItems", new { id = id, bkid=rbd.RoomBookingId });
            
             //}
             ViewData["GuestId"] = new SelectList(_context.Guest, "GuestId", "GuestId", roomBooking.GuestId);

@@ -115,7 +115,8 @@ namespace HotelReservationSystemProject.Controllers
 
             var paymentStatus = "Paid";
             var guestId = _context.Guest.Where(c => c.Email == username).FirstOrDefault().GuestId;
-            RoomBooking roomBooking = new RoomBooking();
+            // RoomBooking roomBooking = new RoomBooking();
+            
             var P = new Payment();
 
             P.PaymentDate = DateOnly.FromDateTime(DateTime.Now);
