@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using HotelReservationSystemProject.Data;
 using HotelReservationSystemProject.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HotelReservationSystemProject.Controllers
  
@@ -26,6 +27,7 @@ namespace HotelReservationSystemProject.Controllers
             _userManager = userManager;
             _roleManager = roleManager;
         }
+        //[Authorize(Roles ="Guest")]
         public async Task<IActionResult> MyProfile()
         {
             string username = User.Identity.Name;

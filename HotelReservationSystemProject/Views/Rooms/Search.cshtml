@@ -16,7 +16,7 @@
                     <div class="card-footer">
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="text-primary fw-bold">SGD @item.Price</span>
-                            <a asp-controller="RoomsItems" asp-action="AddToCart" asp-route-id="@item.RoomId" class="btn btn-sm btn-outline-primary">Book Now</a>
+                            <a asp-controller="RoomBookings" asp-action="Create" asp-route-id="@item.RoomId" class="btn btn-sm btn-outline-primary">Book Now</a>
                         </div>
                     </div>
                 </div>

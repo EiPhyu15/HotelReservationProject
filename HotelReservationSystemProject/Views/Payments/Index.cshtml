@@ -27,6 +27,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.RoomBooking)
             </th>
+           
             <th></th>
         </tr>
     </thead>
@@ -43,14 +44,15 @@
                 @Html.DisplayFor(modelItem => item.paymentType)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Receptionist.ReceptionistId)
+                @Html.DisplayFor(modelItem => item.Receptionist.ReceptionistFName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RoomBooking.RoomBookingId)
+                @Html.DisplayFor(modelItem => item.RoomBooking.Status)
             </td>
+                
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PaymentId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PaymentId">Details</a>
+                <a asp-action="Edit" asp-route-id="@item.PaymentId" class="btn btn-danger">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PaymentId" class="btn btn-success">Details</a>
                 @* <a asp-action="Delete" asp-route-id="@item.PaymentId">Delete</a> *@
             </td>
         </tr>

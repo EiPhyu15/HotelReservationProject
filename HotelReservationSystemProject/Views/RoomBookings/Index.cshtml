@@ -49,9 +49,9 @@
                 @Html.DisplayFor(modelItem => item.Receptionist.ReceptionistFName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.RoomBookingId">Edit</a> |
+                <a asp-action="Edit" asp-route-id="@item.RoomBookingId" class="btn btn-danger">Edit</a> |
 @*                 <a asp-action="Details" asp-route-id="@item.RoomBookingId">Details</a> | *@
-                <a asp-action="Delete" asp-route-id="@item.RoomBookingId">CancelBooking</a>
+                <a asp-action="Delete" asp-route-id="@item.RoomBookingId" class="btn btn-success">CancelBooking</a>
             </td>
         </tr>
 }

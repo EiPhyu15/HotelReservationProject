@@ -8,17 +8,29 @@ using Microsoft.EntityFrameworkCore;
 using HotelReservationSystemProject.Data;
 using HotelReservationSystemProject.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HotelReservationSystemProject.Controllers
 {
     public class ReceptionistsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+        //private readonly ApplicationDbContext _context;
+        //private readonly UserManager<IdentityUser> _userManager;
+        //private readonly RoleManager<IdentityRole> _roleManager;
         public ReceptionistsController(ApplicationDbContext context)
         {
             _context = context;
+            //_userManager = userManager;
+            //_roleManager = roleManager;
         }
+       
+       //public async Task<IActionResult> ReceptionistPorfile()
+       // {
+       //     string username = User.Identity.Name;
+       //     var getProfile = _context.Guest.Where(c => c.Email == username).FirstOrDefault();
+       //     return View(getProfile);
+       // }
 
         // GET: Receptionists
         public async Task<IActionResult> Index()
